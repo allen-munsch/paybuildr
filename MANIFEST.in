@@ -1,0 +1,5 @@
+include LICENSE
+include README.md
+recursive-include stripe_kong/static *
+recursive-include stripe_kong/templates *
+recursive-include stripe_kong/migrations *

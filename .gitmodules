@@ -1,0 +1,3 @@
+[submodule "docker-kong"]
+	path = docker-kong
+	url = ./docker-kong/
