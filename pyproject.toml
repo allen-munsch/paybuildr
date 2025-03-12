@@ -3,14 +3,10 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "django-stripe-kong"
+name = "paybuildr"
 version = "0.1.0"
 description = "A Django app for integrating Stripe payments and Kong API management"
 readme = "README.md"
-authors = [
-    {name = "James Munsch", email = "james.munsch@ccsconsulting.rocks"},
-]
-license = {text = "MIT"}
 classifiers = [
     "Environment :: Web Environment",
     "Framework :: Django",
@@ -31,6 +27,29 @@ dependencies = [
     "requests>=2.31.0",
 ]
 
+[[project.authors]]
+name = "James Munsch"
+email = "james.munsch@ccsconsulting.rocks"
+
 [project.urls]
-"Homepage" = "https://github.com/allen-munsch/django-stripe-kong"
-"Bug Tracker" = "https://github.com/allen-munsch/django-stripe-kong/issues"
+Homepage = "https://github.com/allen-munsch/paybuildr"
+"Bug Tracker" = "https://github.com/allen-munsch/paybuildr/issues"
+
+# Package finding configuration
+[tool.setuptools.packages.find]
+include = ["stripe_kong*"]
+exclude = [
+    "*node_modules*",
+    "*/node_modules/*",
+    "*/*/node_modules/*",
+    "*/*/*/node_modules/*",
+    "**node_modules**",
+]
+
+# Explicit package data inclusion/exclusion
+[tool.setuptools.package-data]
+"*" = ["*.html", "*.css", "*.js", "*.json", "*.md", "*.txt", "*.py"]
+
+# Exclude node_modules from package data
+[tool.setuptools.exclude-package-data]
+"*" = ["*node_modules*", "node_modules/*"]
